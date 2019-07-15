@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html * {
+      padding:0;
+      margin:0;
+      /* box-sizing: content-box */
+    }
+    .section__block {
+      width: 100%;
+      /* background: pink; */
+      /* overflow: hidden; */
+    }
+    .section__block p{
+      margin: 10px 0;
+      height: 30px;
+      overflow: hidden;
+      background:red;
+    }
+    .section__child {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- BFC在垂直方向上会发生重叠 -->
+  <div class="section__block example-1">
+    <style>
+      .example-1 {
+        background: yellow
+      }
+    </style>
+    <p>1</p>
+    <div class="section__child">
+      <p>2</p>
+    </div>
+    <p>3</p>
+  </div>
+
+   <!-- BFC区域不会与浮动元素的box重叠 -->
+   <div class="section__block example-2">
+     <style>
+       .example-2 {
+          height: 100px;
+          background:yellowgreen;
+        }
+       .section__left {
+         width:100px;
+         height: 40px;
+         float: left;
+         background:gray;
+       }
+       .section__right {
+         height: 120px;
+         background:green;
+         overflow: auto;   /**<!-- 创建BFC -->**/
+       }
+     </style>
+      <div class="section__left">left</div>
+      <div class="section__right">right</div>
+    </div>
+
+     <!-- BFC子元素即使是float也会参与高度计算 -->
+   <div class="section__block example-3">
+      <style>
+        .example-3 {
+          background:red;
+           /* overflow: auto; */
+           /* float:left; */
+         }
+         .section__text {
+          font-size:20px;
+          float: left;
+          color:#000;
+         }
+      </style>
+      <div class="section__text">浮动字体</div>
+     </div>
+</body>
+</html>
