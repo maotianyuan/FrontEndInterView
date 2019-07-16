@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原型链</title>
+</head>
+<body>
+  <script>
+    // 创建对象的4种方式
+    var o1 = {name: 'o1'}
+    var o2 = new Object({name: '02'})
+    function O3(){
+      this.name = 'o3'
+    }
+    var o3 = new O3()
+    var P = {name: 'o4'}
+    var o4 = Object.create(P)
+    o4.__propto__ = P
+
+    // 实例有 o1 o2 o3 o4
+    // 构造函数有 O3
+    // 原型对象  O3.prototype
+    // 实例属性 o1.__proto__ o2.__proto__ o3.__proto__ o4.__proto__
+  </script>
+
+  <script>
+    // 实例===构造函数
+      o3.__proto__.constructor = O3
+
+    // 实例===原型对象
+      o3.__proto__ = O3.prototype
+
+    // 构造函数===原型对象
+      O3.prototype.constructor = O3
+
+    // 只有实例对象才有__proto__ 构造函数也有__proto__
+    // 只有构造函数有prototype属性
+    
+
+  </script>
+</body>
+</html>
