@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>防抖节流</title>
+</head>
+<body>
+  <button id="throttle">节流</button>
+  <button id="debounce">防抖</button>
+</body>
+<script>
+  let $eleThrottle = document.getElementById('throttle')
+  let $eleDebounce = document.getElementById('debounce')
+  const handlerBtn = function(event, type) {
+    console.log(this, event, type)
+  }
+  window.onload = function() {
+    //节流
+    const btnThrottle = throttle(handlerBtn, 1000)
+    $eleThrottle.addEventListener('click', function(event){
+      btnThrottle(event, 1000)
+    })
+    // 防抖
+    const btnDebounce = debounce(handlerBtn, 1000)
+    $eleDebounce.addEventListener('click', function(event){
+      btnDebounce(event)
+    })
+  }
+  const throttle = function(func, delay){
+    let timer = null
+    return (...args) => {
+      if (timer) { return }
+      timer = setTimeout(() => {
+        func.call(this, args, 'debounce')
+        timer = null
+      }, delay)
+    }
+  }
+  const debounce = function(func, delay){
+    let timer = null
+    return (...args) => {
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        func.call(this, args, 'debounce')
+      }, delay)
+    }
+  }
+</script>
+</html>
