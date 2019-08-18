@@ -87,7 +87,8 @@ class MyPromise {
       this.reject(error)
     }
   }
-  then (onResolve, onReject) {
+  then (onResolve, num, onReject, tag) {
+    console.log('into-then', num)
     onResolve = typeof onResolve === 'function' ? onResolve : v => v
     onReject = typeof onReject === 'function' ? onReject : function (err) { throw err }
     const promise = new MyPromise((resolve, reject) => {
@@ -151,22 +152,43 @@ class MyPromise {
   }
 }
 
-const p = new MyPromise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('success')
-    // if (Math.random() > 0.5) {
-    // } else {
-    //   reject('error')
-    // }
-  }, 500)
-}).then(value => {
-  console.log(value)
-  return 5555
-}, err => {
-  console.error(err)
-}).then(value => {
-  console.log(value)
+setTimeout(()=>{
+ console.log('test') 
 })
-// const p = MyPromise.resolve('success').then(value => {
-//   console.log(value)
-// })
+
+setTimeout(()=>{
+  console.log('test1') 
+},10)
+ 
+const p = new MyPromise((resolve, reject) => {
+  console.log('hahahah')
+  resolve('success')
+}).then(value => {
+  console.log('promise1-then1')
+}, '1')
+.then(value => {
+  console.log('promise1-then2')
+},'5')
+.then(value => {
+  console.log('promise1-then3')
+  new MyPromise((resolve)=>{
+    console.log('promise2-then0')
+    resolve()
+  })
+  .then(value => {
+    console.log('promise2-then1')
+  }, '2')
+  .then(value => {
+    console.log('promise2-then2')
+  },'3')
+  .then(value => {
+    console.log('promise2-then3')
+  },'4')
+},'6')
+.then(value => {
+  console.log('promise1-then4')
+},'7')
+.then(value => {
+  console.log('promise1-then4')
+},'8')
+// then执行的顺序问题

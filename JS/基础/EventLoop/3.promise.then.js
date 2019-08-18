@@ -1,32 +1,26 @@
 // new Promise((resolve,reject)=>{
 //   console.log("promise1")
-//   resolve()
+//   resolve() // 异步让出 向下执行
 // }).then(()=>{
 //   console.log("then11")
-//   new Promise((resolve,reject)=>{
+//   Promise((resolve,reject)=>{
 //       console.log("promise2")
-//       resolve()
+//       resolve() // 异步向下执行
 //   }).then(()=>{
-//       console.log("then21")
+//       console.log("then21") // 然后在then内部先执行 ，在resolve 异步让出向下
 //   }).then(()=>{
 //       console.log("then23")
 //   })
 // }).then(()=>{
-//   console.log("then12")
+//   console.log("then12") // 
 // })
-
-//按照上一节最后一个microtask的实现过程，
-//也就是说一个Promise所有的then的回调函数是在一个microtask函数中执行的，
-//但是每一个回调函数的执行，又按照情况分为立即执行，微任务(microtask)和宏任务(macrotask)。
-
-
 
 // new Promise((resolve,reject) => {
 //   console.log("promise1")
 //   resolve()
 // }).then(() => {
 //   console.log("then11")
-//   return new Promise((resolve,reject) => {
+//   return new Promise((resolve,reject) => {  // 然后在then内部先执行 ，return是promise一直不让出一直执行
 //       console.log("promise2")
 //       resolve()
 //   }).then(()=>{
@@ -38,17 +32,13 @@
 //   console.log("then12")
 // })
 
-
 // 重点是Promise而非Eventloop
-
-
-
 new Promise((resolve,reject)=>{
   console.log("promise1")
   resolve()
 }).then(()=>{
   console.log("then11")
-  return new Promise((resolve,reject)=>{
+  new Promise((resolve,reject)=>{
       console.log("promise2")
       resolve()
   }).then(()=>{
@@ -59,9 +49,24 @@ new Promise((resolve,reject)=>{
 }).then(()=>{
   console.log("then12")
 })
-new Promise((resolve,reject)=>{
-  console.log("promise3")
-  resolve()
-}).then(()=>{
-  console.log("then31")
-})
+// new Promise((resolve,reject)=>{
+//   console.log("promise3")
+//   resolve()
+// }).then(()=>{
+//   console.log("then31")
+// })
+// new Promise((resolve,reject)=>{
+//   console.log("promise4")
+//   resolve()
+// }).then(()=>{
+//   console.log("then41")
+// })
+
+// promise1
+// promise3
+// then11  // 3的resolve 晚于 promise1
+// promise2 // 执行完 resolve 让出等待
+// then31  // 3的resolve已经开始 优先于 promise2的resolve
+// then21
+// then12
+// then23
