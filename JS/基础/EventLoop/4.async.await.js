@@ -23,4 +23,6 @@ new Promise(function (resolve) {
 
 
 
-// async/await有时候会推迟两轮microtask，在第三轮microtask执行，主要原因是浏览器对于此方法的一个解析，由于为了解析一个await，要额外创建两个promise，因此消耗很大。后来V8为了降低损耗，所以剔除了一个Promise，并且减少了2轮microtask，所以现在最新版本的应该是“零成本”的一个异步。
+// async/await有时候会推迟两轮microtask，
+// 在第三轮microtask执行，主要原因是浏览器对于此方法的一个解析，由于为了解析一个await，要额外创建两个promise，因此消耗很大。
+//后来V8为了降低损耗，所以剔除了一个Promise，并且减少了2轮microtask，所以现在最新版本的应该是“零成本”的一个异步。

@@ -3,7 +3,7 @@
 //   resolve() // 异步让出 向下执行
 // }).then(()=>{
 //   console.log("then11")
-//   Promise((resolve,reject)=>{
+//   new Promise((resolve,reject)=>{
 //       console.log("promise2")
 //       resolve() // 异步向下执行
 //   }).then(()=>{

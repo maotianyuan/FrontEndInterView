@@ -152,13 +152,13 @@ class MyPromise {
   }
 }
 
-setTimeout(()=>{
- console.log('test') 
-})
+// setTimeout(()=>{
+//  console.log('test') 
+// })
 
-setTimeout(()=>{
-  console.log('test1') 
-},10)
+// setTimeout(()=>{
+//   console.log('test1') 
+// },10)
  
 const p = new MyPromise((resolve, reject) => {
   console.log('hahahah')
