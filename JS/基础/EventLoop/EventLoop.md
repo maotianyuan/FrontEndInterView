@@ -28,7 +28,7 @@
     - 2.1.3.1 JS单线程的好处
         - JS 引擎线程和渲染线程，大家应该都知道，在 *JS 运行的时候可能会阻止 UI* 渲染，这说明了*JS引擎线程和渲染线程互斥*
         - 这其中的原因是*因为JS可以修改DOM*，如果在 JS 执行的时候 UI 线程还在工作，就可能导致不能安全的渲染 UI。这其实也是一个单线程的好处，得益于JS是单线程运行的，
-        - 可以达到节省内存，节约上下文切换时间，没有锁的问题的好处。当然前面两点在服务端中更容易体现。
+        - *可以达到节省内存，节约上下文切换时间*，没有锁的问题的好处。当然前面两点在服务端中更容易体现。
         - Javascript 在设计之初的定位是用来处理用户交互以及操作 DOM
     - 2.1.3.2 锁
         - 对于锁的问题，形象的来说就是当我读取一个数字 15 的时候，同时有两个操作对数字进行了加减，这时候结果就出现了错误。
@@ -58,7 +58,7 @@
 
   - 4.1.4 哪些是异步任务
     - 不同的任务源会被*分配到不同的 Task 队列中*，任务源可以分为 *微任务（microtask*） 和 *宏任务（macrotask）*。在 ES6 规范中，microtask 称为 jobs，macrotask 称为 task。下面来看以下代码的执行顺序：
-    - *微任务*包括 process.nextTick ，promise ，MutationObserver，其中 process.nextTick 为 Node 独有
+    - *微任务*包括 process.nextTick ，promise ，MutationObserver(监听一个DOM变动， 当DOM对象树发生任何变动时，Mutation Observer会得到通知)，其中 process.nextTick 为 Node 独有
     - *宏任务*包括 script ， setTimeout ，setInterval ，setImmediate ，I/O ，UI rendering requestAnimationFrame
 
   - 4.1.5 异步代码执行顺序
@@ -151,7 +151,7 @@ Node 的 Event Loop 分为 6 个阶段，它们会按照顺序反复运行。每
 - Node: process.nextTick优先级高于Promise.then
 
 ## 分享
-[Event Loop](https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-13)
+[Event Loop](https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-18)
 [8张图让你一步步看清 async/await 和 promise 的执行顺序](https://segmentfault.com/a/1190000017224799)
 [深入理解JS引擎的执行机制](https://segmentfault.com/a/1190000012806637)
 [Eventloop不可怕，可怕的是遇上Promise](https://juejin.im/post/5c9a43175188252d876e5903#heading-5)

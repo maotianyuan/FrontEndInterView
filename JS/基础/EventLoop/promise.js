@@ -58,7 +58,6 @@ class MyPromise {
     this.value = undefined
     this.onRejectedCallback = []
     this.onFulfilledCallback = []
-
     this.reject = (reason) => {
       setTimeout(() => {
         if (this.status === PENDING) {
@@ -73,10 +72,12 @@ class MyPromise {
       if (value instanceof MyPromise) {
         return value.then(this.resolve, this.reject)
       }
+      console.log('mmmm',this)
       setTimeout(() => {
         if (this.status === PENDING) {
           this.status = FULFILLED
           this.value = value
+          console.log('wwww',this)
           this.onFulfilledCallback.forEach(cb => cb())
         }
       })
@@ -92,6 +93,7 @@ class MyPromise {
     onResolve = typeof onResolve === 'function' ? onResolve : v => v
     onReject = typeof onReject === 'function' ? onReject : function (err) { throw err }
     const promise = new MyPromise((resolve, reject) => {
+      
       const handler = (fn) => {
         try {
           resolutionProcedure(promise, fn(this.value), resolve, reject)
@@ -122,6 +124,8 @@ class MyPromise {
           break;
       }
     })
+    this.num = num
+    console.log(this)
     return promise
   }
   catch (onReject) {
@@ -152,6 +156,17 @@ class MyPromise {
   }
 }
 
+let a=new MyPromise((resolve)=>{
+  console.log(2)
+  resolve(2)
+}).then(()=>{
+ console.log(3) 
+ return 3
+}, 1).then(()=>{
+ console.log(4) 
+ return 4
+}, 2)
+
 // setTimeout(()=>{
 //  console.log('test') 
 // })
@@ -160,35 +175,35 @@ class MyPromise {
 //   console.log('test1') 
 // },10)
  
-const p = new MyPromise((resolve, reject) => {
-  console.log('hahahah')
-  resolve('success')
-}).then(value => {
-  console.log('promise1-then1')
-}, '1')
-.then(value => {
-  console.log('promise1-then2')
-},'5')
-.then(value => {
-  console.log('promise1-then3')
-  new MyPromise((resolve)=>{
-    console.log('promise2-then0')
-    resolve()
-  })
-  .then(value => {
-    console.log('promise2-then1')
-  }, '2')
-  .then(value => {
-    console.log('promise2-then2')
-  },'3')
-  .then(value => {
-    console.log('promise2-then3')
-  },'4')
-},'6')
-.then(value => {
-  console.log('promise1-then4')
-},'7')
-.then(value => {
-  console.log('promise1-then4')
-},'8')
-// then执行的顺序问题
+// const p = new MyPromise((resolve, reject) => {
+//   console.log('hahahah')
+//   resolve('success')
+// }).then(value => {
+//   console.log('promise1-then1')
+// }, '1')
+// .then(value => {
+//   console.log('promise1-then2')
+// },'5')
+// .then(value => {
+//   console.log('promise1-then3')
+//   new MyPromise((resolve)=>{
+//     console.log('promise2-then0')
+//     resolve()
+//   })
+//   .then(value => {
+//     console.log('promise2-then1')
+//   }, '2')
+//   .then(value => {
+//     console.log('promise2-then2')
+//   },'3')
+//   .then(value => {
+//     console.log('promise2-then3')
+//   },'4')
+// },'6')
+// .then(value => {
+//   console.log('promise1-then4')
+// },'7')
+// .then(value => {
+//   console.log('promise1-then4')
+// },'8')
+// // then执行的顺序问题
