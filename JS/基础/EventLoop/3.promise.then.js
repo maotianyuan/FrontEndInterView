@@ -3,7 +3,7 @@ new Promise((resolve,reject)=>{
   resolve() // 异步让出 向下执行
 }).then(()=>{
   console.log("then11")
-  new Promise((resolve,reject)=>{
+  return new Promise((resolve,reject)=>{
       console.log("promise2")
       resolve() // 异步向下执行
   }).then(()=>{
@@ -14,6 +14,14 @@ new Promise((resolve,reject)=>{
 }).then(()=>{
   console.log("then12") // 
 })
+
+
+
+
+
+
+
+
 
 // new Promise((resolve,reject) => {
 //   console.log("promise1")
