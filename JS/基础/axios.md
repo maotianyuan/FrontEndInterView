@@ -56,7 +56,7 @@ Vue.use(axios, {
     if (options.noMessage && !exclude.includes(url)) {
       exclude.push(url)
     }
-    if (url === 'xxxx') return 
+    if (url === 'tokenapi') return //每发送一个接口前，都统一判断token是否存在，不存在就去请求token, 如果请求token接口也发送前再次判断，会造成死循环
     const token = store.state.token || ''
     if (process.env.NODE_ENV !== 'production' && token && token.includes('csrf_token')) {
       return store.dispatch(UPDATE_TOKEN)
