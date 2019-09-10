@@ -1,4 +1,4 @@
-### ajax原生实现
+# ajax原生实现
 
 ```js
 var xhr = XMLHttpRequest ? new XMLHttpRequest() : new window.ActiveXObject('Microsoft.XMLHTTP')
