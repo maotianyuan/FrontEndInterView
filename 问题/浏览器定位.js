@@ -1,3 +1,4 @@
+
 import BMap from 'BMap'
 const isWechat = /MicroMessenger/i.test(window.navigator.userAgent)
 
