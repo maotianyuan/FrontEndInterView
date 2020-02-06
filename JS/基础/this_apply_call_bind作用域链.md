@@ -3,7 +3,7 @@
 * [x] 一、this指向
 * [x] 二、怎么改变this指向
 * [x] 三、JS 中的函数调用
-* [ ] 四、手写 call、apply 及 bind 函数
+* [x] 四、手写 call、apply 及 bind 函数
 * [x] 五、作用域
 
 #### 一、this指向
@@ -158,7 +158,7 @@ new 过程
 ```js
 var a = new myFunction("Li","Cherry");
 
-new myFunction{
+new myFunction {
     var obj = {};
     obj.__proto__ = myFunction.prototype;
     var result = myFunction.call(obj,"Li","Cherry");
