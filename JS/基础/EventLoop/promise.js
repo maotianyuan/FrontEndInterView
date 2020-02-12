@@ -88,8 +88,7 @@ class MyPromise {
       this.reject(error)
     }
   }
-  then (onResolve, num, onReject, tag) {
-    console.log('into-then', num)
+  then (onResolve, onReject) {
     onResolve = typeof onResolve === 'function' ? onResolve : v => v
     onReject = typeof onReject === 'function' ? onReject : function (err) { throw err }
     const promise = new MyPromise((resolve, reject) => {
@@ -124,8 +123,6 @@ class MyPromise {
           break;
       }
     })
-    this.num = num
-    console.log(this)
     return promise
   }
   catch (onReject) {
