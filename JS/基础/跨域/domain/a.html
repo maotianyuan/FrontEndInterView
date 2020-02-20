@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #iframe {
+      width: 200px;
+      border: 1px solid blue;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h4>我是 a </h4>
+  <iframe src="http://b.test.com:9000" id="iframe" onload="getBData()"></iframe>
+</body>
+<script>
+  document.domain = 'test.com'
+  function getBData (value) {
+    // 发送消息
+    var iframe = document.getElementById('iframe');
+    console.log(iframe.contentWindow.data)
+  }
+
+
+</script>
+</html>

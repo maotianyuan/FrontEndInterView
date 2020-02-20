@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #iframe {
+      width: 200px;
+      border: 1px solid blue;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h4>我是 from </h4>
+  <input type="text" id="searchIpt" placeholder="你想对我说的话">
+  <div id="selectWrap">  
+  </div>
+  <iframe id="iframe" src="http://localhost:9000" frameborder="0" onload="searchBaidu()"></iframe>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+  $('#searchIpt').change(function(){
+    let value = $(this).val()
+    searchBaidu(value)
+  })
+  
+  function searchBaidu (value) {
+    // 发送消息
+    var iframe = document.getElementById('iframe');
+    iframe.contentWindow.postMessage(value || 'Hello, 我是 8080 ', 'http://localhost:9000');
+  }
+
+  // 监听返回消息
+  window.addEventListener('message', (event) => {
+    var origin = event.origin || event.originalEvent.origin; 
+    if (origin === 'http://localhost:9000') {
+      $('#selectWrap').text(event.data)
+    }
+  });
+
+</script>
+</html>

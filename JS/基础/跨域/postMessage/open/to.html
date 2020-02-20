@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h4>我是 to </h4>
+  <div id="selectWrap">  
+  </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+ 
+ $('#searchIpt').change(function(){
+    let value = $(this).val()
+    searchBaidu(value)
+  })
+
+ // 接收消息
+  window.addEventListener('message', (event) => {
+    var origin = event.origin || event.originalEvent.origin; 
+    if (origin === 'http://localhost:8080') {
+      event.source.postMessage(
+        `Hello, 我是 9000, 我收到了 8080 消息 【${event.data}】`,
+        origin)
+      console.log(event.data)
+      $('#selectWrap').text(event.data)
+    }
+  });
+
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="searchIpt">
+  <div id="selectWrap">
+    
+  </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+  $('#searchIpt').change(function(){
+    let value = $(this).val()
+    searchBaidu(value)
+  })
+  function searchBaidu (value) {
+    jsonp(`https://www.baidu.com/sugrec?
+    json=1&prod=pc&wd=${value}&bs=${value}&
+    cb=jsonpCallBack`)
+  }
+  // 简易版
+  function jsonp(url) {
+    var element = document.createElement('script');
+    element.setAttribute('src', url);
+    document.getElementsByTagName('head')[0]
+    .appendChild(element);
+  }
+  function jsonpCallBack (res) {
+    const { g } = res
+    const list = Array.from(g, ({ q }) => q)
+    const domList = list.map(item => {
+      return `<div>${item}</div>`
+    })
+    $('#selectWrap').html(domList.join(''))
+  }
+</script>
+</html>
