@@ -19,18 +19,15 @@
     searchBaidu(value)
   })
   function searchBaidu (value) {
-    getData()
+    let socket = new WebSocket('ws://localhost:3000')
+    socket.onopen = function () {
+      socket.send(value || '你好，9000')
+    }
+    socket.onmessage = function (e) {
+      console.log(e.data)
+    }
   }
-  // 简易版
-  function getData() {
-    $.ajax({
-      url: 'http://127.0.0.1:9000',
-      type: 'PUT',
-      success: function(data){
-        $('#selectWrap').html(data)
-      }
-    })
-  }
+
   
 </script>
 </html>

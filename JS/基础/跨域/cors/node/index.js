@@ -6,8 +6,12 @@ require('http').createServer((req, res) => {
   const { origin } = req.headers
   if (WhiteList.includes(origin)) {
     res.writeHead(200, {
-      'Access-Control-Allow-Origin': origin // 核心
+      'Access-Control-Allow-Origin': origin, // 跨域核心，设置该源可访问
+      // 'Access-Control-Allow-Methods': 'PUT' // 除了 GET POST 
     });
+  }
+  if(req.method === 'OPTIONS') {
+    res.end();
   }
   res.end('成功返回 9000 端口号的数据');
 
