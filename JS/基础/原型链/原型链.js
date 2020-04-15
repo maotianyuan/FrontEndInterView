@@ -24,3 +24,9 @@ console.log(o3.__proto__ === O3.prototype)
 
 // 只有实例对象才有__proto__ 构造函数也有__proto__
 // 只有构造函数有prototype属性
+// console.log(o3.__proto__.__proto__.__proto__ === null)
+// console.log(O3.__proto__ === Function.prototype)
+// console.log(O3.__proto__ === Function.__proto__)
+// console.log(Object.__proto__ === Function.prototype)
+// console.log(Object.__proto__ === Function.__proto__)
+console.log(Function.prototype.__proto__ === Object.prototype)
