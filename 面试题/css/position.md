@@ -1,0 +1,6 @@
+
+- position: sticky 不会脱离文档流
+
+## 脱离文档流
+- fixed
+- absolute
