@@ -1,40 +1,53 @@
-# 防抖节流
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
 
-```javascript
-let $eleThrottle = document.getElementById('throttle')
-let $eleDebounce = document.getElementById('debounce')
-const handlerBtn = function(event, type) {
-  console.log(this, event, type)
-}
-window.onload = function() {
-  //节流
-  const btnThrottle = throttle(handlerBtn, 1000)
-  $eleThrottle.addEventListener('click', function(event){
-    btnThrottle(event, 1000)
-  })
-  // 防抖
-  const btnDebounce = debounce(handlerBtn, 1000)
-  $eleDebounce.addEventListener('click', function(event){
-    btnDebounce(event)
-  })
-}
-const throttle = function(func, delay){
-  let timer = null
-  return (...args) => {
-    if (timer) { return }
-    timer = setTimeout(() => {
-      func.call(this, args, 'debounce')
-      timer = null
-    }, delay)
-  }
-}
-const debounce = function(func, delay){
-  let timer = null
-  return (...args) => {
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      func.call(this, args, 'debounce')
-    }, delay)
-  }
-}
-```
+  <button id="debounce">debounce</button>
+  <button id="throttle">throttle</button>
+  <script>
+    const myDebounce = (fn) => {
+      let timer = null;
+      return () => {
+        clearTimeout(timer); // 
+        timer = setTimeout(() => {
+          fn();
+        }, 1000)
+      }
+    }
+    const onDebounce = () => {
+      console.log('debounce click')
+    }
+    const target1 = myDebounce(onDebounce);
+    debounce.addEventListener('click', function(){
+      target1();
+    });
+
+
+    const myThrottle = (fn) => {
+      let timer = null;
+      return () => {
+        if (timer) return;
+        timer = setTimeout(() => {
+          fn();
+          timer = null; // 
+        }, 1000)
+      }
+    }
+    const onThrottle = () => {
+      console.log('therottle click')
+    }
+    const target = myThrottle(onThrottle);
+
+    throttle.addEventListener('click', function(){
+      target();
+    });
+
+  </script>
+</body>
+</html>
