@@ -1,0 +1,16 @@
+# display none opacity: 0 visibility:hidden
+
+## dom
+- display: 不渲染 dom
+- visibility: 渲染dom, 不可见，不能点击
+- opacity: 渲染dom, 不可见，能点击
+
+# 继承
+- display: 不继承，子孙不渲染，
+- visibility: 继承属性，子孙修改 visibility: visible 可以让子孙可见
+- opacity: 继承属性，子孙修改属性，依然不可见
+
+# 性能
+- display: 回引起重排
+- visibility: 本身重绘
+- opacity: 本身重绘
