@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  /* raltive float */
+  /* .main {
+    position:relative;
+  }
+  .left {
+    width: 300px;
+    height: 400px;
+    float: left;
+    background: yellow;
+  }
+  .center {
+    background: red;
+    position: absolute;
+    left: 300px;
+    right: 300px;
+    height:400px;
+  }
+  .right {
+    width: 300px;
+    height: 400px;
+    background: pink;
+    float: right;
+  } */
+
+
+  /* float */
+  /* .main {
+  }
+  .left {
+    width: 300px;
+    height: 400px;
+    float: left;
+    background: yellow;
+  }
+  .center {
+    background: red;
+    height: 400px;
+  }
+  .right {
+    width: 300px;
+    height: 400px;
+    background: pink;
+    float: right;
+  } */
+
+  /* absolute */
+  /* .main { */
+  /* }
+  .left {
+    width: 300px;
+    height: 400px;
+    left: 0;
+    position: absolute;
+    background: yellow;
+  }
+  .center {
+    left: 300px;
+    position: absolute;
+    right: 300px;
+    background: red;
+    height: 400px;
+  }
+  .right {
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    right: 0;
+    background: pink;
+  } */
+
+  /* flex */
+
+  /* .main {
+    display: flex;
+  }
+  .left {
+    width: 300px;
+    height: 400px;
+    background: yellow;
+  }
+  .center {
+    background: red;
+    height: 400px;
+    flex: 1;
+  }
+  .right {
+    width: 300px;
+    height: 400px;
+    background: pink;
+  } */
+
+  /* table-cell */
+
+  /* .main {
+    display: table;
+    width: 100%;
+  }
+  .left {
+    width: 300px;
+    height: 400px;
+    background: yellow;
+    display: table-cell;
+  }
+  .center {
+    background: red;
+    height: 400px;
+    display: table-cell;
+  }
+  .right {
+    width: 300px;
+    height: 400px;
+    background: pink;
+    display: table-cell;
+  } */
+
+  /* grid */
+  .main {
+     /*声明网格布局 */
+    grid-template-rows: 100px;
+    /*行高 */
+    grid-template-columns: 300px auto 300px;
+    display: grid;
+  }
+</style>
+<body>
+  <div class="main">
+    <div class="left">left</div>
+    <div class="center">center</div>
+    <div class="right">right</div>
+  </div>
+</body>
+</html>
+
+
+<!-- 圣杯｜双飞翼：左右两栏固定宽度，中间部分自适应的三栏布局 -->
+<!-- 圣杯 VS 双飞翼： 双飞翼中间部分占据全屏、圣杯中间部分不占据左右两侧-->

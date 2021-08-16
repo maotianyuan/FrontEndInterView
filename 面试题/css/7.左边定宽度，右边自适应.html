@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    /* 1: flex */
+
+    /* .container {
+      display: flex;
+      height: 100%;
+    }
+    .left {
+      width: 200px;
+      background: gray;
+    }
+    .right{
+      background: pink;
+      flex: 1
+    } */
+
+    /* 2: relative absolute */
+    /* .container {
+      display: flex;
+      height: 100%;
+      position: relative;
+    }
+    .left {
+      width: 200px;
+      background: gray;
+    }
+    .right{
+      background: pink;
+      left: 200px;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      position: absolute;
+    } */
+
+
+    /* 3: inline-block */
+    /* .container {
+      height: 100%;
+    }
+    .left {
+      width: 200px;
+      height: 100%;
+      background: gray;
+      display: inline-block;
+    }
+    .right{
+      background: pink;
+      height: 100%;
+      width: calc(100% - 220px);
+      display: inline-block;
+      vertical-align: top;
+    } */
+
+    /* 4: float + calc */
+    /* .container {
+      height: 100%;
+    }
+    .left {
+      float: left;
+      width: 200px;
+      height: 100%;
+      background: gray;
+    }
+    .right{
+      float: right;
+      width: calc(100% - 200px);
+      height: 100%;
+      background: pink;
+    } */
+
+    /* 6: table  */
+    /* .container {
+      display: table;
+      height: 100%;
+      width: 100%;
+    }
+    .left {
+      width: 200px;
+      background: gray;
+      display: table-cell;
+    }
+    .right{
+      display: table-cell;
+      background: pink;
+    }  */
+
+    /* 7: grid  */
+    .container {
+      display: grid;
+      height: 100%;
+      grid-template-columns: 200px auto;
+    }
+    .left {
+      background: gray;
+    }
+    .right{
+      background: pink;
+    } 
+  </style>
+  
+<body>
+  <div class="container">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>
