@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <input type="text" id="input" />
-  <div id="box"></div>
-  <body>
-    <script>
-      let input = document.getElementById("input");
-      let box = document.getElementById("box");
-      var obj = {
-        name: "1",
-      };
 
-      // 核心是 Object.defineProperty
-      // 初始化 Vue， 给 data 中的属性进行 Object.defineProperty 重新定义，为属性添加 get\set 方法
-      // 当属性在模版中进行获取的时候，会调用 get 方法，然后进行依赖收集，在属性发生变化的时候执行 set, 进行相关以来更新
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<input type="text" id="input" />
+<div id="box"></div>
 
-      Object.defineProperty(obj, "name", {
-        configurable: true,
-        enumerable: true,
-        get(v) {
-          console.log("get", v);
-        },
-        set(value) {
-          console.log("set", value);
-          box.innerHTML = value;
-        },
-      });
+<body>
+  <script>
+    let input = document.getElementById("input");
+    let box = document.getElementById("box");
+    var obj = {
+      name: "1",
+    };
 
-      // 输入监听
-      input.addEventListener("keyup", function (e) {
-        obj.name = e.target.value;
-      });
-    </script>
-  </body>
+    // 核心是 Object.defineProperty
+    // 初始化 Vue， 给 data 中的属性进行 Object.defineProperty 重新定义，为属性添加 get\set 方法
+    // 当属性在模版中进行获取的时候，会调用 get 方法，然后进行依赖收集，在属性发生变化的时候执行 set, 进行相关以来更新
+
+    Object.defineProperty(obj, "name", {
+      configurable: true,
+      enumerable: true,
+      get(v) {
+        console.log("get", v);
+      },
+      set(value) {
+        console.log("set", value);
+        box.innerHTML = value;
+      },
+    });
+
+    // 输入监听
+    input.addEventListener("keyup", function (e) {
+      obj.name = e.target.value;
+    });
+  </script>
+</body>
+
 </html>

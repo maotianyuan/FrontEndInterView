@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    /* 1: flex */
+<style>
+  html,
+  body {
+    height: 100%;
+  }
 
-    /* .container {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* 1: flex */
+
+  /* .container {
       display: flex;
       height: 100%;
     }
@@ -31,8 +34,8 @@
       flex: 1
     } */
 
-    /* 2: relative absolute */
-    /* .container {
+  /* 2: relative absolute */
+  /* .container {
       display: flex;
       height: 100%;
       position: relative;
@@ -51,8 +54,8 @@
     } */
 
 
-    /* 3: inline-block */
-    /* .container {
+  /* 3: inline-block */
+  /* .container {
       height: 100%;
     }
     .left {
@@ -69,8 +72,8 @@
       vertical-align: top;
     } */
 
-    /* 4: float + calc */
-    /* .container {
+  /* 4: float + calc */
+  /* .container {
       height: 100%;
     }
     .left {
@@ -86,8 +89,8 @@
       background: pink;
     } */
 
-    /* 6: table  */
-    /* .container {
+  /* 6: table  */
+  /* .container {
       display: table;
       height: 100%;
       width: 100%;
@@ -102,24 +105,27 @@
       background: pink;
     }  */
 
-    /* 7: grid  */
-    .container {
-      display: grid;
-      height: 100%;
-      grid-template-columns: 200px auto;
-    }
-    .left {
-      background: gray;
-    }
-    .right{
-      background: pink;
-    } 
-  </style>
-  
+  /* 7: grid  */
+  .container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 200px auto;
+  }
+
+  .left {
+    background: gray;
+  }
+
+  .right {
+    background: pink;
+  }
+</style>
+
 <body>
   <div class="container">
     <div class="left"></div>
     <div class="right"></div>
   </div>
 </body>
+
 </html>
