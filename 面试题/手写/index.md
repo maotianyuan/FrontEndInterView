@@ -1,0 +1,5 @@
+- 实现 eventEmitter
+- 实现 Promise.allSettled 方法
+- 实现事件绑定 Event 类：包含事件监听，监听一次，解绑，触发。事件名可以是任意的，同一事件可以绑定多次
+- 实现一个 Map ，实现 Map 的创建、插入、读取、遍历
+- promise.all处理并发，200个请求每次请求5个
