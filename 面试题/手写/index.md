@@ -18,3 +18,120 @@
 - 文件上传，n多文件上传，控制在100m内，实现文件数量最大，可以参考算法兑换零钱
 - 实现过滤throttle ,但是需要考虑边界条件，第一次不能触发？根据面试官的要求写
 - 请求次数限制，n多请求，每次只能触发3次
+
+
+- 手写字符串连接符-变驼峰，考察现场编码能力及 api 的熟练程度
+- 括号关闭
+
+- (5.2 - 2.82 _ 43.11) / (25.01 _ 54.11 + 55.2223) \* 2.34566 怎么算出精确的数
+- 把 `input` 转换成 `output` 格式对象
+
+```javascript
+var input = {
+  'a.b.c.dd': 'abcdd',
+  'a.d.xx': 'adxx'
+}
+
+var output = {
+ a: {
+     b: {
+         c: {
+             dd: 'abcdd'
+            }
+        }
+        d: {
+            xx: 'adxx'
+        }
+    }
+}
+```
+
+/['_', 'a', '_', ‘c', 'b', '_', '_’],不改变数组的情况下得出以下信息
+//['a', ‘c', ‘b', '_', '_', '_', '_’]
+
+- https://bitable.feishu.cn/app8Ok6k9qafpMkgyRbfgxeEnet?from=logout&table=tblzZHf2Ix3YtxPM&view=vew9iquA45
+
+```js
+function add(a, b) {
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve(a + b);
+    }, 0);
+  });
+}
+const getSum = async (...args) => {
+  let temp = 0;
+  for (var i = 0; i < args.length; i += 2) {
+    const result = await add(args[i], args[i + 1]);
+    temp += result;
+  }
+  return temp;
+};
+console.log(await getSum(4, 5, 7, 9), "target");
+```
+
+```js
+// 手写个方法，过滤掉 location.search 中的 `c=1`，`https://a.com/?b=0&c=1#/def?g=2&c=1&h=3#ijk_c=1`
+```
+
+```js
+// arr 数组
+// n 项
+// 和等于 sum
+function fn(arr, n, sum)
+```
+
+```js
+// [1,2,3,6,7,3,'2','3','3'] 出现次数最多的项 出现了几次
+```
+
+- 写一个正则表达式，校验 aabb...
+- 安全取值之类的
+- 封装 localstorage
+
+```js
+const fetch = () => {
+  return new Promise((reslove) => {
+    setTimeout(() => {
+      reslove();
+    }, 1000);
+  });
+};
+
+function maxLimiteRequest(max = 5) {
+  let currentSize = 0;
+  let queue = [];
+  const carryTask = () => {
+    if (!queue.length) return;
+    const [url, reslove] = queue.shift();
+    fetch(url)
+      .then((res) => {
+        console.log(url);
+
+        reslove(url);
+      })
+      .finally(() => {
+        if (!queue.length) {
+          currentSize--;
+        }
+        console.log("结束", currentSize);
+        carryTask();
+      });
+  };
+  return function (url) {
+    return new Promise((reslove) => {
+      let task = [url, reslove];
+      queue.push(task);
+      if (currentSize < max) {
+        currentSize++;
+        carryTask();
+      }
+    });
+  };
+}
+
+let request1 = maxLimiteRequest();
+for (let i = 0; i < 10; i++) {
+  request1(i).then((res) => {});
+}
+```
