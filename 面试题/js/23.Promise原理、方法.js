@@ -25,7 +25,7 @@ task.then(() => {
   console.log(2);
 });
 
-// race
+// all
 MyPromise.all = function (promisesList) {
   let arr = [];
   return new MyPromise((resolve, reject) => {
