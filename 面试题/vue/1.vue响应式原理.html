@@ -25,9 +25,11 @@
       configurable: true,
       enumerable: true,
       get(v) {
+        console.log('this',this)
         console.log("get", v);
       },
       set(value) {
+        console.log('this',this)
         console.log("set", value);
         box.innerHTML = value;
       },
@@ -41,3 +43,5 @@
 </body>
 
 </html>
+
+<!-- - 分析 vue 响应式原理，vue 对于循环引用是怎么处理的?, defineProperty 传递的 enumerable是false -->
