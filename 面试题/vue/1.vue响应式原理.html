@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <input type="text" id="input" />
+  <div id="box"></div>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-</head>
-<input type="text" id="input" />
-<div id="box"></div>
+  <body>
+    <script>
+      let input = document.getElementById("input");
+      let box = document.getElementById("box");
+      var obj = {
+        name: "1",
+      };
 
-<body>
-  <script>
-    let input = document.getElementById("input");
-    let box = document.getElementById("box");
-    var obj = {
-      name: "1",
-    };
+      // 核心是 Object.defineProperty
+      // 初始化 Vue， 给 data 中的属性进行 Object.defineProperty 重新定义，为属性添加 get\set 方法
+      // 当属性在模版中进行获取的时候，会调用 get 方法，然后进行依赖收集，在属性发生变化的时候执行 set, 进行相关以来更新
 
-    // 核心是 Object.defineProperty
-    // 初始化 Vue， 给 data 中的属性进行 Object.defineProperty 重新定义，为属性添加 get\set 方法
-    // 当属性在模版中进行获取的时候，会调用 get 方法，然后进行依赖收集，在属性发生变化的时候执行 set, 进行相关以来更新
+      Object.defineProperty(obj, "name", {
+        configurable: true,
+        enumerable: true,
+        get(v) {
+          console.log("this", this);
+          console.log("get", v);
+        },
+        set(value) {
+          console.log("this", this);
+          console.log("set", value);
+          box.innerHTML = value;
+        },
+      });
 
-    Object.defineProperty(obj, "name", {
-      configurable: true,
-      enumerable: true,
-      get(v) {
-        console.log('this',this)
-        console.log("get", v);
-      },
-      set(value) {
-        console.log('this',this)
-        console.log("set", value);
-        box.innerHTML = value;
-      },
-    });
-
-    // 输入监听
-    input.addEventListener("keyup", function (e) {
-      obj.name = e.target.value;
-    });
-  </script>
-</body>
-
+      // 输入监听
+      input.addEventListener("keyup", function (e) {
+        obj.name = e.target.value;
+      });
+    </script>
+  </body>
 </html>
 
 <!-- - 分析 vue 响应式原理，vue 对于循环引用是怎么处理的?, defineProperty 传递的 enumerable是false -->
+
+<!-- ## 详细说一下源码中，修改响应式属性后是怎么触发 DOM 更新的 -->
+<!--
+给 data 中的属性用 Object.defineProperty 重新定义， 为属性添加 get set 方法。
+当属性在模版中获取的时候，会调用 get ， 然后进行依赖收集。
+在属性发生变化的时候进行会执行 set, 通知相关依赖进行派发更新。
+-->
