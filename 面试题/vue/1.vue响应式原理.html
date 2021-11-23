@@ -22,7 +22,7 @@
 
       Object.defineProperty(obj, "name", {
         configurable: true,
-        enumerable: true,
+
         get(v) {
           console.log("this", this);
           console.log("get", v);
