@@ -28,11 +28,16 @@
 
 // 优化
 
+// 0x 16进制
+// 0b 二进制
+// 0o 八进制
+
 const color = (value, hex) => {
   const str = `${value}`.padStart(2, `${value}`)
-  return parseInt(str, 16);
+  // 将16进制的数字, 通过 parseInt 先转化为10进制, 在通过 toString 转化为 指定进制
+  return parseInt(`0x${str}`, 16).toString(hex);
 }
-const transferColor =  (str) => {
+const transferColor =  (str, hex = 10) => {
   if (!str) return '';
   const target = str.replace(/#/, '');
   const len = target.length;
@@ -41,14 +46,14 @@ const transferColor =  (str) => {
     console.log('不符合规范')
     return;
   } 
-  const HEX = 16; // 颜色为 16 进制
   const step = len === 6 ? 2 : 1;
   let result = [];
   for (let i = 0; i < len; i += step) {
     let value = target.slice(i, i + step);
-    result.push(color(value, HEX));
+    result.push(color(value, hex));
   }
   return result;
 }
 
 console.log(transferColor('#fcc'));
+console.log(transferColor('#fcc', 2));

@@ -15,10 +15,10 @@
 - ✅ 13.实现过滤 throttle, 但是需要考虑边界条件，第一次不能触发？根据面试官的要求写
 - ✅ 14.写一个方法生成随机的色值字符串 #c1c1c1？如果说是通过 rgb(255, 255, 255) 生成 #ffffff？十进制转 16 进制或者二进制？
 
+- ✅ 15.括号关闭
+- 16.位运算
 - 1-5 的随机数 Math.floor( Math.random()\*4 ) + 1 => 1-7 的随机数
-- 位运算
 - 文件上传，n 多文件上传，控制在 100m 内，实现文件数量最大，可以参考算法兑换零钱
-- 括号关闭
 
 ---
 
@@ -61,32 +61,12 @@ var output = {
 - https://bitable.feishu.cn/app8Ok6k9qafpMkgyRbfgxeEnet?from=logout&table=tblzZHf2Ix3YtxPM&view=vew9iquA45
 
 ```js
-function add(a, b) {
-  return new Promise((resolve, reject) => {
-    setTimeout(function () {
-      resolve(a + b);
-    }, 0);
-  });
-}
-const getSum = async (...args) => {
-  let temp = 0;
-  for (var i = 0; i < args.length; i += 2) {
-    const result = await add(args[i], args[i + 1]);
-    temp += result;
-  }
-  return temp;
-};
-console.log(await getSum(4, 5, 7, 9), "target");
-```
-
-```js
 // 手写个方法，过滤掉 location.search 中的 `c=1`，`https://a.com/?b=0&c=1#/def?g=2&c=1&h=3#ijk_c=1`
 ```
 
 ```js
 // [1,2,3,6,7,3,'2','3','3'] 出现次数最多的项 出现了几次
 ```
-
 ---
 
 - 写一个正则表达式，校验 aabb...
