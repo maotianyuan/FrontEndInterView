@@ -1,3 +1,25 @@
+class BaseStorage {
+  constructor(storage) {
+    this.storage = storage;
+  }
+  get(key) {
+    let value = this.storage.getItem(key);
+  }
+  set(key, arr) {
+    this.localStorage.setItem(key, JSON.stringify(arr));
+  }
+  remove(key) {
+    this.storage.removeItem(key);
+  }
+  clear() {
+    this.storage.clear();
+  }
+}
+
+export const sessionStorage = new SessionStorage(window.sessionStorage);
+export const localStorage = new BaseStorage(window.localStorage);
+
+
 class StorageBase {
   constructor(storage) {
     this.storage = storage;
