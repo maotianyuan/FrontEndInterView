@@ -11,7 +11,7 @@ class MyEvent {
     this.listener[name] = result;
   }
 
-  trigger(name) {
+  emit(name) {
     const event = this.listener[name];
     if (!event) return;
     event.forEach((callback) => callback());
@@ -40,25 +40,34 @@ class MyEvent {
 }
 
 const mtyEvent = new MyEvent();
+
 const star1 = () => {
   console.log("start-1");
 };
 const star2 = () => {
   console.log("start-2");
 };
+const star3 = () => {
+  console.log("start-3");
+};
+const star4 = () => {
+  console.log("start-4");
+};
+mtyEvent.on("listenToEventBusChange", star1);
+mtyEvent.on("listenToEventBusChange", star2);
+mtyEvent.on("listenToEventBusChange", star3);
+mtyEvent.on("listenToEventBusChange", star4);
 
-mtyEvent.on("start", star1);
-mtyEvent.on("start", star2);
-
-mtyEvent.on("stop", () => {
-  console.log("stop");
-});
+mtyEvent.emit("listenToEventBusChange");
+// mtyEvent.on("other", () => {
+//   console.log("stop");
+// });
 // mtyEvent.trigger("start");
 // mtyEvent.off("start", star1);
 
-mtyEvent.once("once", () => {
-  console.log("mty");
-});
+// mtyEvent.once("once", () => {
+//   console.log("mty");
+// });
 
-mtyEvent.trigger("once");
-console.log(mtyEvent);
+// mtyEvent.trigger("once");
+// console.log(mtyEvent);
