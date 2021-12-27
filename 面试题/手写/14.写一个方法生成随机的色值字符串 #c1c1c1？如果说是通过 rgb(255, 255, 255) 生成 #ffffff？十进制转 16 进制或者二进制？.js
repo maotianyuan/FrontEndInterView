@@ -57,3 +57,6 @@ const transferColor =  (str, hex = 10) => {
 
 console.log(transferColor('#fcc'));
 console.log(transferColor('#fcc', 2));
+
+
+// <!-- - 实现 36 进制的加法，0-9 加 a-z 不得直接使用 parseInt 转换十进制进行计算，如 '1b' + '0a' = 57 -->

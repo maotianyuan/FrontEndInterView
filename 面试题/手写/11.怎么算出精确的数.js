@@ -18,3 +18,6 @@ const getResult = () => {
   return pointer;
 };
 console.log(getResult());
+
+
+// - 两个大的字符串类型的数字相加（超出安全范围）：'12328379' + '989987' 返回字符串
