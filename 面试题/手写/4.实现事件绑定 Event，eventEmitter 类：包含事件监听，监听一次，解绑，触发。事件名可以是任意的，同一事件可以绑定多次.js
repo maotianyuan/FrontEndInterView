@@ -19,7 +19,7 @@ class MyEvent {
   once(name, fn) {
     const _fn = () => {
       fn();
-      this.off(name, fn);
+      this.off(name, _fn);
     };
     this.on(name, _fn);
   }
@@ -34,7 +34,9 @@ class MyEvent {
     if (!fns) return;
 
     const index = fns.findIndex((item) => item === fn);
-    fns.splice(index, 1);
+    if (index >= 0) {
+      fns.splice(index, 1);
+    }
     this.listener[name] = fns;
   }
 }
@@ -57,17 +59,18 @@ mtyEvent.on("listenToEventBusChange", star1);
 mtyEvent.on("listenToEventBusChange", star2);
 mtyEvent.on("listenToEventBusChange", star3);
 mtyEvent.on("listenToEventBusChange", star4);
+mtyEvent.off("listenToEventBusChange", () => {});
 
 mtyEvent.emit("listenToEventBusChange");
-// mtyEvent.on("other", () => {
-//   console.log("stop");
-// });
-// mtyEvent.trigger("start");
-// mtyEvent.off("start", star1);
+mtyEvent.on("other", () => {
+  console.log("stop");
+});
+mtyEvent.emit("start");
+mtyEvent.off("start", star1);
 
-// mtyEvent.once("once", () => {
-//   console.log("mty");
-// });
+mtyEvent.once("once", () => {
+  console.log("mty");
+});
 
-// mtyEvent.trigger("once");
-// console.log(mtyEvent);
+mtyEvent.emit("once");
+console.log(mtyEvent);
