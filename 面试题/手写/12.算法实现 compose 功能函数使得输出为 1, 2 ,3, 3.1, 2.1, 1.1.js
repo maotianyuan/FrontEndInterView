@@ -47,4 +47,20 @@ const compose = (middleware) => {
   dispatch(0);
 };
 
-compose(middleware);
+// compose(middleware);
+
+
+const fn = () => {
+  console.log(1);
+  (() => {
+    console.log(2);
+    (() => {
+      console.log(3);
+      (() => {})();
+      console.log(3.1);
+    })();
+    console.log(2.1);
+  })();
+  console.log(1.1);
+}
+fn();
