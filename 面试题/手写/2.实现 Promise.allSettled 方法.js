@@ -6,7 +6,7 @@ function allSettled (iterator) {
     const handlerPromise = (index, data) => {
       arr[index] = data;
       if (arr.length === iterator.length) {
-        resolve(data);
+        resolve(arr);
       }
     }
     for (promise of iterator) {
