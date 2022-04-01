@@ -10,6 +10,17 @@ const arr = [
   { 'id': 'd3', 'pid': 'd2', 'name': 'Java研发部' }
 ]
 
+// let obj = {};
+// for (let i = 0 ; i < arr.length; i++) {
+//   let {pid, id} = arr[i];
+//   if (!pid) {
+//     obj[id] = arr[i];
+//   } else {
+//     obj[pid].children = arr[i];
+//   }
+// }
+// console.log(obj);
+
 const getTreeHead = (data) => {
   const head = []
   data.map(item => {
