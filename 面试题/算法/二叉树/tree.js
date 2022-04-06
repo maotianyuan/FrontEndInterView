@@ -61,4 +61,5 @@ const getResult = (data = []) => {
 const tree = getChainTree(data)
 const result = getResult(tree)
 
+console.log(tree)
 console.log(result)

@@ -10,6 +10,21 @@ const arr = [
   { 'id': 'd3', 'pid': 'd2', 'name': 'Java研发部' }
 ]
 
+var array = [
+  {pid: 4, id: 6617, name: "a",subNode:[]},
+  {pid: 5, id: 666, name: "a",subNode:[]},
+  {pid: 4, id: 6616, name: "a",subNode:[]},
+  {pid: 6616, id: 66161, name: "a",subNode:[]},
+  {pid: -1, id: 0, name: "a",subNode:[]},
+  {pid: 0, id: 4, name: "a",subNode:[]},
+  {pid: 0, id: 5, name: "a",subNode:[]},
+  {pid: 4, id: 10, name: "a",subNode:[]},
+  {pid: 10, id: 451, name: "a",subNode:[]},
+  {pid: 0, id: 98, name: "a",subNode:[]},
+  {pid: 98, id: 23, name: "a",subNode:[]},
+  {pid: 98, id: 523, name: "a",subNode:[]}
+];
+
 // let obj = {};
 // for (let i = 0 ; i < arr.length; i++) {
 //   let {pid, id} = arr[i];
