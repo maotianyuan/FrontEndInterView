@@ -2,7 +2,7 @@
 
 const random15 = () => {
   return Math.round((Math.random() * 10 + 1) / 2); // 1 - 5
-}
+};
 
 // 1-5 减 1 乘 5 = [0 - 20]
 
@@ -13,7 +13,6 @@ const random15 = () => {
 // 5 - 1 * 5 = 20
 
 // 1 - 25
-
 
 // 1、2、3
 // 4、5、6
@@ -26,11 +25,13 @@ const random15 = () => {
 const getRandom17 = () => {
   const baseMax5 = random15();
   const baseMax20 = (random15() - 1) * 5;
-  const result = (baseMax20 + baseMax5)
-  console.log(result);
+  const result = baseMax20 + baseMax5;
+  console.log("baseMax20", baseMax20);
+  console.log("baseMax5", baseMax5);
+  console.log("result", result);
   if (result > 21) {
     return getRandom17();
   }
-  return 1 + result % 7;
-}
+  return 1 + (result % 7);
+};
 console.log(getRandom17());
