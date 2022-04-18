@@ -23,3 +23,9 @@ var factory = dog.getDog.bind(cat, 1)
 var fac = new factory()
 fac.name = 'fac name'
 console.log(fac)
+
+Function.prototype.myBind = function() {
+  
+}
+
+// Array.prototype.slice.call(arguments, 1)
