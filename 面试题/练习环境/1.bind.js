@@ -24,18 +24,4 @@ fac.name = "fac name";
 console.log(fac);
 
 Function.prototype.myBind = function (context) {
-  let _this = this;
-  let bindArgs = Array.prototype.slice.call(arguments).slice(1);
-  function fn() {
-    let args = Array.prototype.slice.call(arguments);
-    return _this.call(
-      this instanceof fn ? this : context,
-      ...bindArgs,
-      ...args
-    );
-  }
-  fn.prototype = Object.create(this.prototype);
-  return fn();
 };
-
-// Array.prototype.slice.call(arguments, 1)

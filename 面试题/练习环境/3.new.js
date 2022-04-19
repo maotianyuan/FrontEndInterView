@@ -10,3 +10,10 @@ function myNew(context, ...args) {
   let result = context.call(obj, ...args);
   return result instanceof Object ? result : obj;
 }
+
+
+function _create(context) {
+  function fn() {}
+  fn.prototype == context;
+  return new fn();
+}
