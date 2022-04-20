@@ -45,8 +45,8 @@ const getTree = (node) => {
   if (!node || !node.val) return;
 };
 
-console.log(getTree(tree));
-console.log(result);
+// console.log(getTree(tree));
+// console.log(result);
 
 const arr = [
   { id: 10, pid: "" },
@@ -58,19 +58,6 @@ const arr = [
   { id: 20, pid: 22 },
 ];
 
-// let obj = {};
-// for (let i = 0 ; i < arr.length; i++) {
-//   let {pid, id} = arr[i];
-//   if (!pid) {
-//     obj[id] = arr[i];
-//   } else {
-//     let tem = {}
-//     // obj[pid].children = arr[i];
-//     while(true) {
-//       obj[]
-//     }
-//   }
-// }
-// console.log(obj);
-
-// https://juejin.cn/post/6983904373508145189#heading-8
+const getData = (data) => {};
+const abc = getData(arr);
+console.log(abc);

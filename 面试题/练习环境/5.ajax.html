@@ -1,31 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-    function ajax () {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', url, true);
-      const formData = new FormData(form)
-      formData.append("id", "123456")
-      xhr.withCredentials = true;
-      xhr.setRequestHeader('')
-      xhr.send(formData);
-      xhr.onabort = function () {
-       
-      }
-      xhr.onload = function() {
-        if (xhr.status == 200) {
-          const data = xhr.reponseText;
-          console.log(data);
-        }
-      }
-    }
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function ajax() {}
+    </script>
+  </body>
 </html>

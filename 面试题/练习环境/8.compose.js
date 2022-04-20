@@ -19,16 +19,7 @@ middleware.push((next) => {
 });
 
 // 迭代将数组执行嵌套执行
-const compose = (middleware) => {
-  const dispatch = (index) => {
-    const fn = middleware[index];
-    if (index >= middleware.length) return;
-    fn(() => {
-      dispatch(++index);
-    });
-  };
-  dispatch(0);
-};
+const compose = () => {};
 // compose(middleware);
 
 //////////////////////////////// compose 2
@@ -45,13 +36,7 @@ function fn3(value) {
 
 const data = fn3(fn2(fn1(1, 2)));
 
-const myCompose = (...middleware) => {
-  return middleware.reduce((next, prev) => {
-    return (...args) => {
-      return next(prev(...args));
-    };
-  });
-};
+const myCompose = () => {};
 
 // fn3(fn2())
 // fn3(fn2(fn1()))
