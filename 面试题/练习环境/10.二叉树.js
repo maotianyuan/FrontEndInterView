@@ -37,11 +37,12 @@ const tree = {
 let result = [];
 
 // 遍历
+// 反转
+// 深度
+// 每行最大值
+// 轮廓
 const getTree = (node) => {
   if (!node || !node.val) return;
-  node.left && getTree(node.left);
-  console.log(node.val);
-  node.right && getTree(node.right);
 };
 
 console.log(getTree(tree));
