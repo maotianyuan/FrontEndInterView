@@ -20,8 +20,9 @@ dog.getDog.bind(cat)([4, 5, 6], 7);
 
 var factory = dog.getDog.bind(cat, 1);
 var fac = new factory();
+
 fac.name = "fac name";
+
 console.log(fac);
 
-Function.prototype.myBind = function (context) {
-};
+Function.prototype.myBind = function (context) {};

@@ -1,15 +1,12 @@
 var input = {
-  'a.b.c.dd': 'abcdd',
-  'a.d.xx': 'adxx'
-}
-
-const formatterData = (data) => {
-
+  "a.b.c.dd": "abcdd",
+  "a.d.xx": "adxx",
 };
 
-const result = formatterData(input)
-console.log(result);
+const formatterData = (data) => {};
 
+const result = formatterData(input);
+console.log(result);
 
 // current = {};
 // target[firstKey] = current;
@@ -19,12 +16,11 @@ console.log(result);
 // temp[secondKey] = nextCurrent;
 // temp = current;
 
-let obj = {};
-let current = {};
-obj['a'] = current;
-temp = current;
+// let obj = {};
+// let current = {};
+// obj["a"] = current;
+// temp = current;
 
-temp['b'] = {};
-temp = temp['b'];
-console.log(obj);
-
+// temp["b"] = {};
+// temp = temp["b"];
+// console.log(obj);

@@ -14,14 +14,14 @@ class Link {
       return;
     }
     let temp = this.list;
-    while(temp.next) {
-      temp = temp.next
+    while (temp.next !== null) {
+      temp = temp.next;
     }
     this.size++;
     temp.next = {
       val: value,
       next: null,
-    }
+    };
   }
   /** 遍历 */
   print() {
