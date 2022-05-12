@@ -20,43 +20,11 @@
       console.log('throttleBtnEvent', e);
     }
     const debounce = (fn, delay = 1000, immediate = true) => {
-      let timer = null;
-      return function(...args) {
-        if (timer) {
-          clearTimeout(timer);
-        }
-        if (immediate && !timer) {
-          fn.call(this, ...args); 
-        }
-        timer = setTimeout(() => {
-          if (!immediate) {
-            fn.call(this, ...args);
-          }
-          clearTimeout(timer);
-          timer = null;
-        }, delay);
-      }
     }
 
     const throttle = (fn, wait = 1000, { leading = true, trailing = true }) => {
-      let timer = null;
-      return function(...args) {
-        if (timer) {
-          return;
-        }
-        if (leading && !timer) {
-          fn.call(this, ...args);
-        }
-        
-        timer = setTimeout(() => {
-          if((!leading || trailing)) {
-            fn.call(this, ...args);
-          }
-          clearTimeout(timer);
-          timer = null;
-        }, wait)
-      }
     }
+
     const debounceTarget = debounce(debounceBtnEvent);
     const throttleTarget = throttle(throttleBtnEvent, 1000, {});
 
