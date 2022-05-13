@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <button id="debounceBtn">dbtn</button>
-  <button id="throttleBtn">rbtn</button>
-  
-  <script>
-    const debounceBtn = document.getElementById("debounceBtn");
-    const throttleBtn = document.getElementById("throttleBtn");
-    const debounceBtnEvent = (e) => {
-      console.log('debounceBtnEvent', e);
-    }
-    const throttleBtnEvent = (e) => {
-      console.log('throttleBtnEvent', e);
-    }
-    const debounce = (fn, delay = 1000, immediate = true) => {
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="debounceBtn">dbtn</button>
+    <button id="throttleBtn">rbtn</button>
 
-    const throttle = (fn, wait = 1000, { leading = true, trailing = true }) => {
-    }
+    <script>
+      const debounceBtn = document.getElementById("debounceBtn");
+      const throttleBtn = document.getElementById("throttleBtn");
+      const debounceBtnEvent = (e) => {
+        console.log("debounceBtnEvent", e);
+      };
+      const throttleBtnEvent = (e) => {
+        console.log("throttleBtnEvent", e);
+      };
+      const debounce = (fn, delay = 1000, immediate = true) => {};
 
-    const debounceTarget = debounce(debounceBtnEvent);
-    const throttleTarget = throttle(throttleBtnEvent, 1000, {});
+      //  1上来就执行，
+      const throttle = (
+        fn,
+        wait = 1000,
+        { leading = false, trailing = true }
+      ) => {};
 
-    debounceBtn.addEventListener("click", debounceTarget)
-    throttleBtn.addEventListener("click", throttleTarget)
-  </script>
-</body>
+      const debounceTarget = debounce(debounceBtnEvent);
+      const throttleTarget = throttle(throttleBtnEvent, 1000, {});
+
+      debounceBtn.addEventListener("click", debounceTarget);
+      throttleBtn.addEventListener("click", throttleTarget);
+    </script>
+  </body>
 </html>

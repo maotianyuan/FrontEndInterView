@@ -1,4 +1,4 @@
-//////////////////////////////// compose 一
+//////////////////////////////// koa - compose
 
 let middleware = [];
 // compose 功能函数使得输出为 1, 2 ,3, 3.1, 2.1, 1.1
@@ -19,10 +19,10 @@ middleware.push((next) => {
 });
 
 // 迭代将数组执行嵌套执行
-const compose = () => {};
-// compose(middleware);
+const compose = (data) => {};
+compose(middleware);
 
-//////////////////////////////// compose 2
+//////////////////////////////// reduce - compose
 
 function fn1(a, b) {
   return a + b;
@@ -36,7 +36,7 @@ function fn3(value) {
 
 const data = fn3(fn2(fn1(1, 2)));
 
-const myCompose = () => {};
+const myCompose = (data) => {};
 
 // fn3(fn2())
 // fn3(fn2(fn1()))
