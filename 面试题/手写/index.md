@@ -21,5 +21,8 @@
 
 - ✅ 18.把 `input` 转换成 `output` 格式对象
 - ✅ 19.手写个方法，过滤掉 location.search 中的 `c=1`，`https://a.com/?b=0&c=1#/def?g=2&c=1&h=3#ijk_c=1`
-- 20.写一个正则表达式，校验 aabb...
+
+- ✅ 20.写一个正则表达式，校验 aabb...
 - ✅ 21.封装 localStorage
+- ✅ 22.sleep
+- ✅ 23.模版引擎
