@@ -6,9 +6,4 @@ function one() {
   two();
 }
 var a = 1;
-one(); 
-
-
-
-
-// 1
+one();
