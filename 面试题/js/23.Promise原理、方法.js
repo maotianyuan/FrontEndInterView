@@ -46,10 +46,10 @@ MyPromise.all = function (promisesList) {
 
 // all-2
 
-function all (iterator) {
+function all(iterator) {
   let arr = [];
   let hasError = false;
-  return new Promise ((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     for (promise of iterator) {
       promise.then(
         (res) => {
@@ -64,11 +64,10 @@ function all (iterator) {
           hasError = true;
           reject(err);
         }
-      )
+      );
     }
-  })
+  });
 }
-
 
 // race - 1
 MyPromise.race = function (promisesList) {
@@ -81,56 +80,54 @@ MyPromise.race = function (promisesList) {
   });
 };
 // race-2
-function race (iterator) {
+function race(iterator) {
   let flag = false;
   return new Promise((resolve, reject) => {
     for (promise of iterator) {
       promise.then(
         (res) => {
-          if(flag) return;
+          if (flag) return;
           flat = true;
           resolve(res);
         },
         (err) => {
-          if(flag) return;
+          if (flag) return;
           flat = true;
           reject(err);
         }
-      )
+      );
     }
   });
 }
 
-
-
 // allSettled
 
-function allSettled (iterator) {
+function allSettled(iterator) {
   let arr = [];
   let index = 0;
-  return new Promise ((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const handlerPromise = (index, data) => {
       arr[index] = data;
       if (arr.length === iterator.length) {
         resolve(data);
       }
-    }
+    };
     for (promise of iterator) {
       promise.then(
         (res) => {
           handlerPromise(index, {
-            status: 'success',
+            status: "success",
             data: res,
-          })
+          });
         },
         (err) => {
           handlerPromise(index, {
-            status: 'error',
+            status: "error",
             data: err,
-          })
+          });
         }
-      )
+      );
       index++;
     }
-  })
+  });
 }
