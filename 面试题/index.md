@@ -5,7 +5,7 @@
   - 34.a===1&&a===2&&a===3 为 true
   - 35.isNaN 和 number.isNaN 区别
   - 32.0.1 + 0.2 !== 0.3，如何解决上面说的精确度丢失问题，number 最大数 大数、小数
-  - 🌟38.位运算
+  - 🏷️ 38.位运算
   - 40.'use strict' 的作用是什么
   - 9.typeof、数据类型、instanceof、手写 instanceof
   - 12.事件机制捕获、冒泡
@@ -18,7 +18,7 @@
   - 15.实现 reduce foreach, forEach 与 for 循环，谁的性能更好
 - 作用域
   - 19.JS 垃圾回收和 v8 的垃圾回收机制有什么区别
-  - 🌟 27.什么是作用域链、执行上下文、词法环境
+  - 🏷️ 27.什么是作用域链、执行上下文、词法环境
 - 对象
   - 7.Object.prototype.toString 返回什么
   - 10.什么是面向对象
@@ -34,20 +34,24 @@
   - 13.JS 中通过 `bind` 绑定的方法，再使用 `apply` 或 `call` 会改变它的 `this` 吗，几个原理
   - 30.箭头函数于普通函数区别
   - 31.柯里化
-  - 🌟 36.随机数
+  - 36.随机数
   - 41.如何判断是 new 还是函数调用
-  - 🌟 25.防抖和节流应用场景
+  - 🏷️ 25.防抖和节流应用场景
 - 异步
   - 14.事件循环
   - 21.ajax fetch axios 区别，ajax 实现原理, axios 原理是什么
-  - 🌟 22.不用 promise, 那些可实现 promise generator
-  - 🌟 23.Promise 原理、方法，promise race all allsetted
+  - 22.不用 promise, 那些可实现 promise generator
+  - 🏷️ 23.Promise 原理、方法，promise race all allsetted
   - 24.为什么原生的 form 表单提交没有跨域问题（form 请求和 ajax 请求有什么不同）
 - 其他
   - 29.模块化
-  - 33 RAF 和 RIC 是什么
+  - 🏷️ 33 RAF 和 RIC 是什么
   - 39.进程通信的几种方式
   - 20.设计模式了解应用，发布订阅模式, 单例模式，保证只有给弹窗，当一个弹窗打开的时候，关闭其他弹窗
+- API
+  - 🏷️ Worker
+  - 🏷️ Proxy
+  - 🏷️ AudioContext
 
 # css
 
@@ -65,7 +69,7 @@
 - 属性
   - 3.position 那些值，作用什么
   - 4.display none opacity: 0 visibility:hidden
-  - 9.css 的 transform 和 animation 区别
+  - 🏷️ 9.css 的 transform 和 animation 区别
   - 12.哪些 css 可以开启硬件加速 transform\opacity\filter
   - 14.css3 属性
   - 16.伪元素 ::before 与伪类 :first-child 的区别
@@ -89,7 +93,7 @@
   - 1.post 和 put 请求有什么区别
   - 9.get 和 post 有什么区别
 - 请求头
-  - 13.Conent-Type;
+  - 13.content-Type;
 - 优化
   - 2.http 缓存原理，前端缓存了解哪些，网络缓存和前端缓存如何交互，协商缓存浏览器如何判断
   - 3.说几个缓存相关的 HTTP 状态码， 301 和 302 区别，浏览器接收到 301 302 如何处理
@@ -103,13 +107,13 @@
   - TCP
     - 4.三次握手，四次挥手，为什么挥手不能用三次
     - 10.TCP 和 UDP 区别是什么
-    - 🌟 12.TCP 滑动窗口、重试机制
+    - 12.TCP 滑动窗口、重试机制
 - 版本
   - 5.http1 和 http2 的区别， http2 做了那些改进，有哪些不足，http3 做了那些改进
 - https
-  - 🌟 6.http 和 https 的区别, https 加密过程
+  - 6.http 和 https 的区别, https 加密过程
 - websocket
-  - 15.心跳机制
+  - 🏷️ 15.心跳机制
 
 # 浏览器
 
@@ -117,7 +121,7 @@
 - 2.defer
 - 3.浏览器安全方面做了哪些， xss 工具方式是怎样，如何做，前端在 XSS、XSF 防御是如何做的
 - 4.输入 url 到看到页面发生了什么
-- 5.跨域
+- 🏷️ 5.跨域
 - 6.onload 和 DOMContentLoaded 的区别
 - 浏览器通信：两个标签页想要共享 sessionStorage 的数据，如何做呢
 - Echarts 渲染内核有哪些模式？canvas 和 svg 的区别
@@ -197,7 +201,7 @@
   ```
 - ts 中的类型断言如何做的 (a1 as string).length \ (<number>a1).toFixed(2)
 - ts 有哪些类型: any number string array boolean null undefined enum tuple void never
-- ts 中的泛型 <T>
+- 🏷️ ts 中的泛型 <T>
 
 # vue
 
@@ -258,10 +262,10 @@ https://mp.weixin.qq.com/s/9ifXga_Z4Q51SJbLgr4fPQ
 # 项目
 
 - B
-  - 微前端
+  - 🏷️ 微前端
   - 脚手架
   - 组件库、单元测试
-  - 按钮权限
+  - 🏷️ 按钮权限
 - C
   - 帮助工具
   - mix
@@ -322,7 +326,7 @@ https://mp.weixin.qq.com/s/9ifXga_Z4Q51SJbLgr4fPQ
 # 其他
 
 - 最近有学习什么新技术
-- flutter 中 widget 用过哪些？
+- flutter 中 widget 用过哪些
 - 图片处理时如果图片时倒过来的怎么处理
 - cicd 发布流程，前端做了什么
 - 如何解决跨域，cors，设置*后一直可以跨域吗，什么情况配*下不可以，如果配置是个域名，只返回个域名行吗
