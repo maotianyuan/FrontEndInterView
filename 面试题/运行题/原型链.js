@@ -22,8 +22,8 @@ getName();
 Foo().getName();
 getName();
 
-new Foo.getName(); // new (foo.getName) ()
-new Foo().getName(); // (new foo()).getName()
+new Foo.getName(); // new (foo.getName) () // 2
+new Foo().getName(); // (new foo()).getName() // 3
 new new Foo().getName(); // new ((new foo()).getName)()
 
 // new和点运算符的优先级

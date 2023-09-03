@@ -164,6 +164,9 @@
   - 装饰器
 - 索引类型
   - keyof UserInfo ---> 'name' | 'address'
+    type TypeToNumber<T> = {
+    [key in keyof T]: number
+    }
 - 内置类型
   - ReadOnly<obj>
   - Pick<UserInfo, 'name' | 'address'> 抽取

@@ -1,3 +1,6 @@
+// 编译： 函数赋值，变量不赋值
+// 执行：变量赋值
+
 var a = 1;
 function fn(m) {
   console.log("fn");

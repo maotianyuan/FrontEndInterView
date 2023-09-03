@@ -1,3 +1,15 @@
+
+
+
+
+
+// 思想
+// 每次点击都创建新的定时器，并把上一个销毁，有定时器 timer 存在则不执行函数
+// 不点击的时候，定时器不在创建，最后一个定时器会把 定时器 timer 重置 null，
+
+
+
+
 // V1 - 函数执行
 const debounce = (fn, delay = 1000) => {
   let timer = null;
@@ -54,18 +66,5 @@ const debounceV3 = (fn, delay = 1000, immediate = true) => {
       clearTimeout(timer);
       timer = null;
     }, delay);
-  }
-}
-
-
-// 无定时器版
-
-const debounceV4 = (fn, delay = 1000, immediate = true) => {
-  let previous = 0;
-  return function(...args){
-    let now = Date.now();
-    if (delay > now - previous) {
-      fn.call(this, ...args);
-    }
   }
 }

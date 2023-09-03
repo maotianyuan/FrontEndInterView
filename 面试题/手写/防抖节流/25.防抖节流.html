@@ -13,15 +13,23 @@
   <button id="debounce">debounce</button>
   <button id="throttle">throttle</button>
   <script>
-    const myDebounce = (fn) => {
-      let timer = null;
+    const myDebounce = (fn, wait = 500, immediate = true) => {
+      let timer = null
       return () => {
-        clearTimeout(timer); // 
+        timer && clearTimeout(timer)
+        if (immediate && !timer) {
+          fn()
+        }
         timer = setTimeout(() => {
-          fn();
-        }, 1000)
+          if (!immediate) {
+            fn()
+          }
+          timer = null
+        }, wait);
       }
     }
+
+
     const onDebounce = () => {
       console.log('debounce click')
     }
@@ -31,14 +39,22 @@
     });
 
 
-    const myThrottle = (fn) => {
-      let timer = null;
+    const myThrottle = (fn, wait = 1000, immediate = true, last = true) => {
+      let timer = null
       return () => {
-        if (timer) return;
-        timer = setTimeout(() => {
+        if (timer) {
+          return;
+        }
+        if (immediate && !timer) {
           fn();
-          timer = null; // 
-        }, 1000)
+        }
+        timer = setTimeout(() => {
+          if (last) {
+            fn();
+          }
+          clearTimeout(timer)
+          timer = null
+        }, wait)
       }
     }
     const onThrottle = () => {
