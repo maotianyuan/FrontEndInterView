@@ -2,11 +2,11 @@
 
 ("use strict");
 var a = 1;
-console.log(a);
+console.log(a); //1
 {
-  console.log(a);
+  console.log(a); // a = 1
   function a() {
-    console.log(1);
+    console.log(1); // 1
   }
 }
 console.log(a);
