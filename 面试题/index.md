@@ -208,24 +208,35 @@
 
 # vue
 
-- 1.vue 响应式原理
-- 2.vue 数组是否响应
-- 3.虚拟 dom
-- 4.全局注册组件、vue use 干了什么
-- 5.vue 组件如何通讯
-- 6.reactive ref 区别
-- 7.vuex 的数据流 核心原理是什么
-- 8.有使用过自定义指令吗？有哪些钩子函数？分别代表什么呢
-- 9.Vue.minxins 做过什么功能，mixins.js 和 组件中生命周期函数执行顺序，以及选项合并策略
-- 10.compiler diff 原理
-- 11.vue-router
-- vue-router 原理、模式区别，微信分享遇到问题,vue-router 路由模式有什么？实现原理是什么 hashchange，window.history.pushState
-- computed 和 watch 的区别
-- axios 如何处理携带 cookies axios.defaults.withCredentials = true;
-- Vue2 和 Vue3 区别
-- computed 的底层原理
-- mvvm 理解
-- react vs vue
+- vue2
+  - 1.vue 响应式原理 手写
+  - 2.vue 数组是否响应
+  - 3.虚拟 dom
+  - 4.全局注册组件、vue use 干了什么
+  - 5.vue 组件如何通讯
+  - 8.有使用过自定义指令吗？有哪些钩子函数？分别代表什么呢
+  - 9.Vue.minxins 做过什么功能，mixins.js 和 组件中生命周期函数执行顺序，以及选项合并策略
+  - 10.compiler diff 原理
+  - computed 和 watch 的区别
+  - v-model 双向绑定的原理是什么？
+  - keep-alive  LRU
+- 周边
+  - 7.vuex 的数据流 核心原理是什么
+  - 11.vue-router
+  - vue-router 原理、模式区别，微信分享遇到问题,vue-router 路由模式有什么？实现原理是什么 hashchange，window.history.pushState
+  - vue-router怎么实现的？components 组件干了什么
+  - axios 如何处理携带 cookies axios.defaults.withCredentials = true;
+  - computed 的底层原理
+- vue3
+  - 6.reactive ref 区别
+  - vue3源码响应式实现
+  - Vue3为什么比Vue2快？
+- 区别
+  - Vue2 和 Vue3 区别
+  - react vs vue
+  - vue2和vue3 核心 diff 算法区别？
+
+
 
 # webpack
 
