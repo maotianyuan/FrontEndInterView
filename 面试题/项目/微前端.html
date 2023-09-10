@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        background: yellow;
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="qiankun">乾坤</div>
+    <script>
+      // 在子应用的入口文件中（app1.js）创建 Shadow DOM
+      const shadowRoot = document
+        .getElementById("qiankun")
+        .attachShadow({ mode: "open" });
+
+      // 创建一个 div 元素，并将其添加到 Shadow DOM 中
+      const div = document.createElement("div");
+      div.textContent = "This is app1";
+      shadowRoot.appendChild(div);
+
+      // 创建一个样式元素，并将其添加到 Shadow DOM 中
+      const style = document.createElement("style");
+      style.textContent = `
+        div {
+          background-color: red;
+          color: white;
+          font-size: 12px;
+          padding: 10px;
+        }
+      `;
+      shadowRoot.appendChild(style);
+
+      class ShadowProxy {
+        constructor() {
+          let globalObj = window;
+          let obj = {};
+          const proxy = new Proxy(obj, {
+            get(target, key) {
+              return Reflect.get(target, key) || globalObj[key];
+            },
+            set(target, key, value) {
+              return Reflect.set(target, key, value);
+            },
+          });
+          this.proxy = proxy;
+        }
+      }
+
+      window.a = 1000;
+
+      appChild = new ShadowProxy();
+      ((window) => {
+        window.a = "100";
+        console.log(window.a);
+      })(appChild.proxy);
+    </script>
+  </body>
+</html>

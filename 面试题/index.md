@@ -219,24 +219,31 @@
   - 10.compiler diff 原理
   - computed 和 watch 的区别
   - v-model 双向绑定的原理是什么？
-  - keep-alive  LRU
+  - keep-alive LRU
 - 周边
-  - 7.vuex 的数据流 核心原理是什么
+  - 7.vuex 的数据流 核心原理是什么 单一数据源响应式机制 状态管理一致性
   - 11.vue-router
-  - vue-router 原理、模式区别，微信分享遇到问题,vue-router 路由模式有什么？实现原理是什么 hashchange，window.history.pushState
-  - vue-router怎么实现的？components 组件干了什么
+  - vue-router 原理、模式区别,vue-router 路由模式有什么？实现原理是什么 hashchange，window.history.pushState
+  - vue-router 怎么实现的？components 组件干了什么
   - axios 如何处理携带 cookies axios.defaults.withCredentials = true;
   - computed 的底层原理
 - vue3
   - 6.reactive ref 区别
-  - vue3源码响应式实现
-  - Vue3为什么比Vue2快？
+  - vue3 源码响应式实现
+  - Vue3 为什么 比 Vue2 快？
+    - diff: 静态提升、动态跳过
+    - 响应式
 - 区别
   - Vue2 和 Vue3 区别
+    - 响应式
+    - diff
+    - Composition API 模块的拆分
+    - 风格：选项式 组合式
+    - 根结点
   - react vs vue
-  - vue2和vue3 核心 diff 算法区别？
-
-
+  - vue2 和 vue3 核心 diff 算法区别？
+    - vue2: 双指针、key、diff 粒度包含所有子树
+    - vue3: 静态提升、动态跳过、逐级更新、Fragment 支持多根
 
 # webpack
 
@@ -276,10 +283,18 @@ https://mp.weixin.qq.com/s/9ifXga_Z4Q51SJbLgr4fPQ
 # 项目
 
 - B
+
   - 🏷️ 微前端
+
+    - 样式隔离(shadow): 浏览器技术 $ele.attachShdow({mode: 'open'})
+    - 沙箱隔离：JS 运行环境隔离，快照沙箱（不支持多个实例），proxy 代理沙箱
+    - 数据隔离
+    - 路由隔离
+
   - 脚手架
   - 组件库、单元测试
-  - 🏷️ 按钮权限
+  - 按钮权限
+
 - C
   - 帮助工具
   - mix
