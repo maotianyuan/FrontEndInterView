@@ -227,6 +227,7 @@
   - vue-router 怎么实现的？components 组件干了什么
   - axios 如何处理携带 cookies axios.defaults.withCredentials = true;
   - computed 的底层原理
+  - pinia: ts、第三方、去除 mutation、没嵌套、
 - vue3
   - 6.reactive ref 区别
   - vue3 源码响应式实现
