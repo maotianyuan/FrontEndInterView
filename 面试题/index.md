@@ -37,6 +37,7 @@
   - 36.随机数
   - 41.如何判断是 new 还是函数调用
   - 🏷️ 25.防抖和节流应用场景
+  - eval
 - 异步
   - 14.事件循环
   - 21.ajax fetch axios 区别，ajax 实现原理, axios 原理是什么
@@ -234,6 +235,7 @@
   - Vue3 为什么 比 Vue2 快？
     - diff: 静态提升、动态跳过
     - 响应式
+  - vue3 编译做了哪些优化
 - 区别
   - Vue2 和 Vue3 区别
     - 响应式
@@ -259,6 +261,7 @@
 - 9.webpack 的 tree shaking 是怎么实现的
 - 10.热更新 HMR
 - 11.讲一下 Rollup 和 webpack 的区别
+- babel 插件
 
 # 优化
 
