@@ -232,20 +232,9 @@
 - vue3
   - 6.reactive ref 区别
   - vue3 源码响应式实现
-  - Vue3 为什么 比 Vue2 快？
-    - diff: 静态提升、动态跳过
-    - 响应式
   - vue3 编译做了哪些优化
 - 区别
   - Vue2 和 Vue3 区别
-    - 响应式
-    - diff
-    - Composition API 模块的拆分
-    - 风格：选项式 组合式
-    - 根结点
-  - vue2 和 vue3 核心 diff 算法区别？
-    - vue2: 双指针、key、diff 粒度包含所有子树
-    - vue3: 静态提升、动态跳过、逐级更新、Fragment 支持多根
   - react vs vue
 
 # webpack
