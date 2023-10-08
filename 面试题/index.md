@@ -239,7 +239,7 @@
 
 # webpack
 
-- 1.webpack 中 loader 和 plugin 的区别
+- 1.webpack 中 loader 和 plugin 的区别，怎么实现loader和plugin机制扩展自身
 - 2.webpack 的三种 hash、chunkHash、contentHash 有什么区别
 - 3.source map 怎么用
 - 4.如何实现一个 plugin 插件
@@ -251,6 +251,8 @@
 - 10.热更新 HMR
 - 11.讲一下 Rollup 和 webpack 的区别
 - babel 插件
+- 实现模块化
+- 实现高效的热更新
 
 # 优化
 
