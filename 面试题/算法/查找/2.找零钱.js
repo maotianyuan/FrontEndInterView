@@ -8,6 +8,9 @@
 // 110 / 20 = 5.5
 // 110 % 20 = 10
 
+
+// 思路：在当前面值中，找到跟金额最接近的切小鱼当前金额的数字，然后求除，得到的数字是个数
+// 得到的余数，在继续找开头找零钱
 const getBase = (v) => {
   const arr = [20, 10, 5, 1];
   for (let i = 0; i < arr.length; i++) {
@@ -17,6 +20,8 @@ const getBase = (v) => {
     }
   }
 };
+
+let target = [];
 
 const findMoney = (value, target) => {
   const base = getBase(value);
@@ -32,6 +37,6 @@ const findMoney = (value, target) => {
   return target;
 };
 
-let target = [];
+
 const result = findMoney(112, target);
 console.log(result);
