@@ -19,7 +19,8 @@ middleware.push((next) => {
 });
 
 // 迭代将数组执行嵌套执行
-const compose = (data) => {};
+const compose = (data) => {
+};
 compose(middleware);
 
 //////////////////////////////// reduce - compose
@@ -36,7 +37,10 @@ function fn3(value) {
 
 const data = fn3(fn2(fn1(1, 2)));
 
-const myCompose = (data) => {};
+const myCompose = (data) => {
+  // fn3、fn2                             => (...args) => fn3(fn2(...args))
+  // (...args) => fn3(fn2(...args))、fn1  => (...args) => fn3(fn2(fn1(...args)))
+};
 
 // fn3(fn2())
 // fn3(fn2(fn1()))

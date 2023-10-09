@@ -10,5 +10,9 @@ function* fetch() {
   return `${i}${j}`;
 }
 
-function co(it) {}
+
+// data.next().value 返回的是 promise, 它有 then
+function co(it) {
+ 
+}
 co(fetch()).then(() => {});

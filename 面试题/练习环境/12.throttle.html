@@ -19,14 +19,24 @@
       const throttleBtnEvent = (e) => {
         console.log("throttleBtnEvent", e);
       };
-      const debounce = (fn, delay = 1000, immediate = true) => {};
+      // 连续点击只执行一次
+      // 立即执行：timer 有值就不能执行
+      // 定时器控制的是 timer 值
+      
+      const debounce = (fn, delay = 1000, immediate = true) => {
+      };
 
-      //  1上来就执行，
+      // 连续点击，一定时间只执行一次
+      // 默认执行，首次不执行控制
+      // wait 之后点击
+      // 尾巴控制：点击时有多次剩余时间，只取第一次点击的剩余时间
+      
       const throttle = (
         fn,
         wait = 1000,
         { leading = false, trailing = true }
-      ) => {};
+      ) => {
+      };
 
       const debounceTarget = debounce(debounceBtnEvent);
       const throttleTarget = throttle(throttleBtnEvent, 1000, {});
