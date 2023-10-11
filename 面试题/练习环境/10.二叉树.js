@@ -41,8 +41,8 @@ let result = [];
 // 深度
 // 每行最大值
 // 轮廓
-const getTree = (node) => {
-  if (!node || !node.val) return;
+const getTree = (node, cb) => {
+  
 };
 
 // console.log(getTree(tree));

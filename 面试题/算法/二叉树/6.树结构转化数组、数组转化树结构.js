@@ -103,6 +103,6 @@ const getArr = (tree, result = [], prev) => {
   if (tree.right) getArr(tree.right, result, tree)
 };
 
-let result = []
-const target = getArr(tree, result);
-console.log(result);
+// let result = []
+// const target = getArr(tree, result);
+// console.log(result);
