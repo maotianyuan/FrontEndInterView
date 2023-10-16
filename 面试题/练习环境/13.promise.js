@@ -1,83 +1,47 @@
-let PENDING = "pending";
-let FULLFILLED = "fullfilled";
-let REJECT = "reject";
+const PENDING = 'PENDING'
+const REJECTED = 'REJECTED'
+const FULLFILED = 'FULLFILED'
+
 class MyPromise {
-  constructor(excutor) {
-    this.status = PENDING;
+  constructor(fn) {
     this.value = null;
-    this.resolveFnCallBack = [];
-    this.rejectFnCallBack = [];
-    this.resolve = (value) => {
-      this.value = value;
-      this.status = FULLFILLED;
-      this.resolveFnCallBack.map((item) => item(value));
-    };
-    this.reject = (value) => {
-      this.value = value;
-      this.status = REJECT;
-      this.rejectFnCallBack.map((item) => item(value));
-    };
-    excutor(this.resolve, this.reject);
+    this.status = PENDING
+    this.fullfiledcb = []
+    const resolve = (value) => {
+      if (this.status === PENDING) 
+      this.status = FULFILLED;{
+        this.value = value;
+        fullfiledcb.map(item => item(this.value))
+        this.status = FULLFILED;
+      }
+    }
+    fn(resolve)
   }
-  then(resolveFn, rejectFn) {
-    resolveFn = typeof resolveFn === "function" ? resolveFn : (v) => v;
-    rejectFn =
-      typeof rejectFn === "function"
-        ? rejectFn
-        : function (err) {
-            throw err;
-          };
-    return new MyPromise((resolve, reject) => {
+  then(onFulfilled) {
+    return new MyPromise((resolve) => {
       switch (this.status) {
         case PENDING:
-          this.resolveFnCallBack.push(() => {
-            let value = resolveFn(this.value);
-            if (promise === value)
-              return reject(
-                new Error(
-                  "TypeError: Chaining cycle detected for promise #<Promise>"
-                )
-              ); // 解决情况一问题
-
-            if (
-              (typeof value === "object" && typeof value !== null) ||
-              typeof value === "function"
-            ) {
-              let then = value.then;
-              if (typeof then === "function") {
+          fullfiledcb.push(() => {
+            const v = onFulfilled(this.value)
+            if (typeof v === 'object' && v !== null) {
+              let then = v.then;
+              if (typeof then === 'function') {
                 then.call(
-                  this,
-                  (x) => {
-                    // resolvePromise(promise, y, resolve, reject);
-                    resolve(x);
-                  },
-                  (y) => {
-                    reject(y);
-                  }
-                );
+                  v, (y) => 
+                )
               } else {
-                resolve(value);
+                resolve(v)
               }
             } else {
-              resolve(value);
+              resolve(v)
             }
           });
-          this.rejectFnCallBack.push(() => {
-            rejectFn(this.value);
-            reject(this.value);
-          });
           break;
-        case REJECT:
-          rejectFn(this.value);
-          reject(this.value);
-          break;
-        case FULLFILLED:
-          resolveFn(this.value);
-          resolve(this.value);
-
+        case FULLFILED:
+          onFulfilled(this.value);
           break;
       }
-    });
+    })
   }
 }
 
