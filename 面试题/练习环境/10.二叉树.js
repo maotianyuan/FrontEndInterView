@@ -34,30 +34,27 @@ const tree = {
     },
   },
 };
-let result = [];
 
-// 遍历
-// 反转
-// 深度
-// 每行最大值
-// 轮廓
-const getTree = (node, cb) => {
-  
+let order = (data) => {
+  let target = [];
+  const deep = (node) => {
+    if (!node) return
+    // if (node.val) {
+    //   target.push(node.val);
+    // }
+    Object.keys(node).map((item) => {
+      let current = node[item]; // left 对象、right 对象
+      target.push(current.val)
+      // deep(current)
+      // current.val && target.push(current.val);
+      // deep(current);
+    });
+  };
+  deep(data);
+  return target;
 };
 
+const result = order(tree);
+console.log(result)
 // console.log(getTree(tree));
 // console.log(result);
-
-const arr = [
-  { id: 10, pid: "" },
-  { id: 8, pid: 10 },
-  { id: 6, pid: 8 },
-  { id: 19, pid: 10 },
-  { id: 15, pid: 19 },
-  { id: 22, pid: 19 },
-  { id: 20, pid: 22 },
-];
-
-const getData = (data) => {};
-const abc = getData(arr);
-console.log(abc);

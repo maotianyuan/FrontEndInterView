@@ -53,3 +53,30 @@ getTree(tree, (val) => {
   count += val;
 });
 console.log(count);
+
+// 广度层遍历
+
+
+const levelOrder = (root) => {
+  let target = [];
+  if (!root) {
+    return target;
+  }
+  let queue = [root];
+  while (queue.length) {
+    let len = queue.length;
+    let level = [];
+    while (len) {
+      let node = queue.shift();
+      level.push(node.val);
+      node.left && queue.push(node.left);
+      node.right && queue.push(node.right);
+      len--;
+    }
+    target.push(level);
+  }
+  return target;
+};
+
+const result = levelOrder(tree);
+console.log(result);
