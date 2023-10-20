@@ -27,3 +27,4 @@ function fibonacci(n) {
   return sum
 }
 console.log(fibonacci(20))
+
