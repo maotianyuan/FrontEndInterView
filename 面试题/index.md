@@ -330,9 +330,9 @@ https://mp.weixin.qq.com/s/9ifXga_Z4Q51SJbLgr4fPQ
 
 # H5
 
+- webview 和原生交互是如何实现的，搭桥的原理
 - H5 屏幕适配方案对比
 - 移动端适配的原理及多种方案对比
-- webview 和原生交互是如何实现的，搭桥的原理
 - 然后问了一下移动端兼容性问题，比如键盘遮挡 input
 
 # 小程序
