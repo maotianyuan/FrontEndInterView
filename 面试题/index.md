@@ -5,7 +5,7 @@
   - 34.a===1&&a===2&&a===3 为 true
   - 35.isNaN 和 number.isNaN 区别
   - 32.0.1 + 0.2 !== 0.3，如何解决上面说的精确度丢失问题，number 最大数 大数、小数 为什么在2^53范围内是安全的？
-  - 🏷️ 38.位运算
+  - 38.位运算
   - 40.'use strict' 的作用是什么
   - 9.typeof、数据类型、instanceof、手写 instanceof
   - 12.事件机制捕获、冒泡
@@ -18,7 +18,7 @@
   - 15.实现 reduce foreach, forEach 与 for 循环，谁的性能更好
 - 作用域
   - 19.JS 垃圾回收和 v8 的垃圾回收机制有什么区别
-  - 🏷️ 27.什么是作用域链、执行上下文、词法环境
+  - 27.什么是作用域链、执行上下文、词法环境
 - 对象
   - 7.Object.prototype.toString 返回什么
   - 10.什么是面向对象
@@ -36,23 +36,23 @@
   - 31.柯里化
   - 36.随机数
   - 41.如何判断是 new 还是函数调用
-  - 🏷️ 25.防抖和节流应用场景
+  - 25.防抖和节流应用场景
   - eval
 - 异步
   - 14.事件循环
   - 21.ajax fetch axios 区别，ajax 实现原理, axios 原理是什么
   - 22.不用 promise, 那些可实现 promise generator
-  - 🏷️ 23.Promise 原理、方法，promise race all allsetted
+  - 23.Promise 原理、方法，promise race all allsetted
   - 24.为什么原生的 form 表单提交没有跨域问题（form 请求和 ajax 请求有什么不同）
 - 其他
   - 29.模块化
-  - 🏷️ 33 RAF 和 RIC 是什么
+  - 33 RAF 和 RIC 是什么
   - 39.进程通信的几种方式
   - 20.设计模式了解应用，发布订阅模式, 单例模式，保证只有给弹窗，当一个弹窗打开的时候，关闭其他弹窗
 - API
-  - 🏷️ Worker
-  - 🏷️ Proxy
-  - 🏷️ AudioContext
+  - Worker
+  - Proxy
+  - AudioContext
 
 # css
 
@@ -70,7 +70,7 @@
 - 属性
   - 3.position 那些值，作用什么
   - 4.display none opacity: 0 visibility:hidden
-  - 🏷️ 9.css 的 transform 和 animation 区别
+  - 9.css 的 transform 和 animation 区别
   - 12.哪些 css 可以开启硬件加速 transform\opacity\filter
   - 14.css3 属性
   - 16.伪元素 ::before 与伪类 :first-child 的区别
@@ -114,7 +114,7 @@
 - https
   - 6.http 和 https 的区别, https 加密过程
 - websocket
-  - 🏷️ 15.心跳机制
+  - 15.心跳机制
 
 # 浏览器
 
@@ -122,7 +122,7 @@
 - 2.defer
 - 3.浏览器安全方面做了哪些， xss 工具方式是怎样，如何做，前端在 XSS、XSF 防御是如何做的
 - 4.输入 url 到看到页面发生了什么
-- 🏷️ 5.跨域
+- 5.跨域
 - 6.onload 和 DOMContentLoaded 的区别
 - 浏览器通信：两个标签页想要共享 sessionStorage 的数据，如何做呢
 - Echarts 渲染内核有哪些模式？canvas 和 svg 的区别
@@ -205,7 +205,7 @@
   ```
 - ts 中的类型断言如何做的 (a1 as string).length \ (<number>a1).toFixed(2)
 - ts 有哪些类型: any number string array boolean null undefined enum tuple void never
-- 🏷️ ts 中的泛型 <T>
+- ts 中的泛型 <T>
 
 # vue
 
@@ -254,56 +254,8 @@
 - 实现模块化
 - 实现高效的热更新
 
-# 优化
 
-https://mp.weixin.qq.com/s/9ifXga_Z4Q51SJbLgr4fPQ
 
-- B
-  - 懒加载
-  - 长列表优化
-  - keep-alive
-- 通用
-  - 打包构建
-- C
-  - 业务：proxy
-  - 方案：视频、跨容器
-- 性能优化，你会从哪几个方面考虑性能优化
-- vuecli 升级
-- 内存泄露怎么解决，怎么定位，内存泄漏的方式有哪些
-- 项目优化
-- 白屏优化措施
-- performance, 怎么通过 Performance 解决性能问题的
-- 新能指标、RAIL
-
-# 项目
-
-- B
-
-  - 🏷️ 微前端
-
-    - 样式隔离(shadow): 浏览器技术 $ele.attachShdow({mode: 'open'})
-    - 沙箱隔离：JS 运行环境隔离，快照沙箱（不支持多个实例），proxy 代理沙箱
-    - 数据隔离
-    - 路由隔离
-
-  - 脚手架
-  - 组件库、单元测试
-  - 按钮权限
-
-- C
-  - 帮助工具
-  - mix
-- 通用
-  - vue3.0 vite ts
-
-# 题
-
-- https://www.yuque.com/zaotalk/interview/iv3pyp#ehMC
-- http://muyiy.cn/question/js/2.html
-- https://juejin.cn/post/7028478428680552456#heading-40
-- [飞书](https://m26bxrpatp.feishu.cn/base/appcn5mUun8tTLsaFG0jrTeUnBg?table=tbllAUETZhGVTWMA&view=vewJHSwJVd)
-- https://mp.weixin.qq.com/s/RJxR9Fsbv8oTl6GXWY4oaQ
-- https://q.shanyue.tech/
 
 ---
 
@@ -358,3 +310,15 @@ https://mp.weixin.qq.com/s/9ifXga_Z4Q51SJbLgr4fPQ
 - 聊 Web Workers 与 WebAssembly 技术
 - electron 有哪些进程
 - LRU
+
+
+
+# 题
+- 体系： http://www.ffbig.com/
+- https://www.yuque.com/zaotalk/interview/iv3pyp#ehMC
+- http://muyiy.cn/question/js/2.html
+- https://juejin.cn/post/7028478428680552456#heading-40
+- [飞书](https://m26bxrpatp.feishu.cn/base/appcn5mUun8tTLsaFG0jrTeUnBg?table=tbllAUETZhGVTWMA&view=vewJHSwJVd)
+- https://mp.weixin.qq.com/s/RJxR9Fsbv8oTl6GXWY4oaQ
+- https://q.shanyue.tech/
+- https://www.kancloud.cn/freya001/interview/1235945
