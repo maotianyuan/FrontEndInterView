@@ -54,6 +54,19 @@ mainWindow.loadFile(path.join(__dirname, "../index.html"));
 mainWindow.webContents.openDevTools(); // 调试面板
 ```
 
+addBrowserView
+```js
+bw.addBrowserView(bv);
+bv.setBounds({ x: 0, y: 0, width: 300, height: 300 });
+bv.loadFile()
+```
+
+destroyBrowserView
+```js
+// bw.close();
+bw.removeBrowserView(bv);
+```
+
 ## 功能
 ### 截图
 ```js
@@ -112,3 +125,47 @@ net.isOnline()
     }
     total += user + nice + sys + idle + irq;
   ```
+
+
+## session
+### 网络请求拦截
+```js
+  session.defaultSession.webRequest.onBeforeSendHeaders(
+    (detail, callback) => {
+      detail.requestHeaders.__test__ = "test";
+      callback({ requestHeaders: detail.requestHeaders });
+    }
+  );
+```
+
+## 插件
+- 主进程注册
+```js
+//  设置 webPreferences.plugin = true
+// .dll win32
+// .plugin darwin
+ app.commandLine.appendSwitch(
+    "register-pepper-plugins",
+    "../plugin/ppapi/zpplogger.dll;application/x-ppapi-zpplogger"
+  );
+```
+
+- 渲染进程调用
+```js
+function createEmbed (param){
+  var moduleEl = document.createElement('embed');
+  moduleEl.setAttribute('name', 'nacl_module');
+  moduleEl.setAttribute('mode', 'stream');
+  moduleEl.setAttribute('src', 'win/stream.nmf');
+  moduleEl.setAttribute('type', 'application/x-ppapi-testlogger');
+  moduleEl.addEventListener('message', param.handler, true);
+  return moduleEl;
+}
+this.embed = createEmbed()
+this.embed.postMessage(JSON.stringify({"method": action, "parameters": data }))
+```
+
+## 唤起
+```js
+app.setAsDefaultProtocolClient('scheme');
+```
